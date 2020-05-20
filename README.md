@@ -11,4 +11,5 @@ Cell Death Limit = 3
 Chance To Start Alive = 38%
 ```
 Result:
+
 ![Simulation Preview GIF](capture/simulation.gif)
