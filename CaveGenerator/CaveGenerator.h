@@ -37,5 +37,4 @@ public:
 
 	// Setters
 	void SetState(int x, int y, bool state);
-	void SetMap(Map &map);
 };

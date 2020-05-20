@@ -37,7 +37,6 @@ std::vector<std::vector<bool>> Map::GetMap() { return cellMap; }
 
 // Setters
 void Map::SetState(int x, int y, bool state) { cellMap[y][x] = state; }
-void Map::SetMap(Map &map) { this->cellMap = map.cellMap; }
 
 void Map::Generate()
 {
