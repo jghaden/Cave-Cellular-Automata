@@ -113,7 +113,7 @@ int Map::GetNeighbors(int x, int y)
 				count++;
 			}
 			// Inside of the map
-			else if (GetState(neighbor_y, neighbor_x))
+			else if (GetState(neighbor_x, neighbor_y))
 			{
 				count++;
 			}
