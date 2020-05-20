@@ -10,6 +10,8 @@ Map::Map(int width, int height, int birthLimit, int deathLimit, float chanceToSt
 	this->birthLimit = birthLimit;
 	this->deathLimit = deathLimit;
 	this->chanceToStartAlive = chanceToStartAlive;
+
+	Init();
 }
 
 void Map::Init()
