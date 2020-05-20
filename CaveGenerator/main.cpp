@@ -7,7 +7,7 @@ int main(void)
 {
 	ShowConsoleCursor(false);
 
-	Map cave(60, 20, 4, 3, 0.35f);
+	Map cave(80, 25, 4, 3, 0.38f);
 	cave.Init();
 
 	while(true)
@@ -20,6 +20,8 @@ int main(void)
 
 			cave.SimulationStep();
 		}
+
+		cave.Reset();
 
 		Sleep(3000);
 	}

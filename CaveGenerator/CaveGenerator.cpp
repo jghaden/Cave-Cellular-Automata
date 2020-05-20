@@ -21,6 +21,8 @@ void Map::Init()
 	tmpMap.resize(height, std::vector<bool>(width, false));
 }
 
+void Map::Reset() { Init(); }
+
 // Getters
 bool Map::GetState(int x, int y) { return cellMap[y][x]; }
 

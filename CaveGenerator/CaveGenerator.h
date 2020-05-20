@@ -16,6 +16,7 @@ public:
 	Map(int width, int height, int birthLimit, int deathLimit, float chanceToStartAlive);
 
 	void Init();
+	void Reset();
 	void Generate();
 	void SimulationStep();
 	void ShowMap();
