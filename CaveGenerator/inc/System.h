@@ -11,4 +11,5 @@ inline void WriteAt(int x, int y, T data)
 	std::cout << data;
 }
 
+void ClearScreen();
 void ShowConsoleCursor(bool showFlag);

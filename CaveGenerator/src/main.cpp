@@ -14,7 +14,8 @@ int main(void)
 	Death limit of 3 cells
 	Chance to start alive at 38%
 	*/
-	Map cave(80, 25, 4, 3, 0.38f);
+	Map cave(140, 40, 4, 3, 0.40f);
+	system("mode 142, 42");
 
 	while(true)
 	{
