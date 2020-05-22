@@ -20,20 +20,16 @@ public:
 	void Generate();
 	void SimulationStep();
 	void ShowMap();
+	void InvertMap();
 	
 	// Getters
 	bool GetState(int x, int y);
-
 	int GetWidth();
 	int GetHeight();
 	int GetBirthLimit();
 	int GetDeathLimit();
-	
-	float GetChanceToStartAlive();
-
-	std::vector<std::vector<bool>> GetMap();
-
 	int GetNeighbors(int x, int y);
+	float GetChanceToStartAlive();
 
 	// Setters
 	void SetState(int x, int y, bool state);

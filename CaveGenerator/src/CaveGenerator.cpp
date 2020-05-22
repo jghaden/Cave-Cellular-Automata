@@ -27,15 +27,11 @@ void Map::Reset() { Init(); }
 
 // Getters
 bool Map::GetState(int x, int y) { return cellMap[y][x]; }
-
 int Map::GetWidth() { return width; }
 int Map::GetHeight() { return height; }
 int Map::GetBirthLimit() { return birthLimit; }
 int Map::GetDeathLimit() { return deathLimit; }
-
 float Map::GetChanceToStartAlive() { return chanceToStartAlive; }
-
-std::vector<std::vector<bool>> Map::GetMap() { return cellMap; }
 
 // Setters
 void Map::SetState(int x, int y, bool state) { cellMap[y][x] = state; }
