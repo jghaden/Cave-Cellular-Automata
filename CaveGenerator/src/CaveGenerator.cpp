@@ -124,20 +124,23 @@ int Map::GetNeighbors(int x, int y)
 
 void Map::ShowMap()
 {
+	std::string out;
+
 	for (int y = 0; y < GetHeight(); y++)
 	{
+		out = "";
 		for (int x = 0; x < GetWidth(); x++)
 		{
 			if (GetState(x, y))
 			{
-				WriteAt(x, y, 'Û');
+				out += 'Û';
 			}
 			else
 			{
-				WriteAt(x, y, ' ');
+				out += ' ';
 			}
 		}
 
-		std::cout << std::endl;
+		WriteAt(0, y, out);
 	}
 }
