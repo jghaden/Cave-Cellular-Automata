@@ -5,17 +5,17 @@
 
 int main(void)
 {
+	SetWindowSize(1160, 700);
 	ShowConsoleCursor(false);
 
 	/*
 	Creates Map object with a
-	width of 80 and height 25
+	width of 140 and height 40
 	Birth limit of 4 cells
 	Death limit of 3 cells
-	Chance to start alive at 38%
+	Chance to start alive at 40%
 	*/
-	Map cave(140, 40, 4, 3, 0.40f);
-	system("mode 142, 42");
+	Map cave(140, 40, 4, 3, 0.4f);
 
 	while(true)
 	{
