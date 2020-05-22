@@ -11,7 +11,6 @@ private:
 	float chanceToStartAlive;
 
 	std::vector<std::vector<bool>> cellMap;
-	std::vector<std::vector<bool>> tmpMap;
 public:
 	Map(int width, int height, int birthLimit, int deathLimit, float chanceToStartAlive);
 

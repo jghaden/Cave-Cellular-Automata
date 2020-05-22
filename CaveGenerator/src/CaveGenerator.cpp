@@ -17,10 +17,8 @@ Map::Map(int width, int height, int birthLimit, int deathLimit, float chanceToSt
 void Map::Init()
 {
 	cellMap.clear();
-	tmpMap.clear();
 
 	cellMap.resize(width, std::vector<bool>(height, false));
-	tmpMap.resize(width, std::vector<bool>(height, false));
 }
 
 void Map::Reset() { Init(); }
@@ -58,6 +56,8 @@ void Map::SimulationStep()
 {
 	int neighbors;
 
+	Map tmpMap(GetWidth(), GetHeight(), GetBirthLimit(), GetDeathLimit(), GetChanceToStartAlive());
+
 	for (int x = 0; x < GetWidth(); x++)
 	{
 		for (int y = 0; y < GetHeight(); y++)
@@ -68,28 +68,28 @@ void Map::SimulationStep()
 			{
 				if (neighbors < GetDeathLimit())
 				{
-					tmpMap[x][y] = false;
+					tmpMap.cellMap[x][y] = false;
 				}
 				else
 				{
-					tmpMap[x][y] = true;
+					tmpMap.cellMap[x][y] = true;
 				}
 			}
 			else
 			{
 				if (neighbors > GetBirthLimit())
 				{
-					tmpMap[x][y] = true;
+					tmpMap.cellMap[x][y] = true;
 				}
 				else
 				{
-					tmpMap[x][y] = false;
+					tmpMap.cellMap[x][y] = false;
 				}
 			}
 		}
 	}
 
-	cellMap = tmpMap;
+	cellMap = tmpMap.cellMap;
 }
 
 int Map::GetNeighbors(int x, int y)
