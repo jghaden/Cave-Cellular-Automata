@@ -1,6 +1,9 @@
 #pragma once
 
-#include <iostream>
-#include <Windows.h>
 #include <ctime>
+#include <iostream>
+#include <string>
 #include <vector>
+#include <Windows.h>
+
+#include "System.h"
