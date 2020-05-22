@@ -19,14 +19,14 @@ void Map::Init()
 	cellMap.clear();
 	tmpMap.clear();
 
-	cellMap.resize(height, std::vector<bool>(width, false));
-	tmpMap.resize(height, std::vector<bool>(width, false));
+	cellMap.resize(width, std::vector<bool>(height, false));
+	tmpMap.resize(width, std::vector<bool>(height, false));
 }
 
 void Map::Reset() { Init(); }
 
 // Getters
-bool Map::GetState(int x, int y) { return cellMap[y][x]; }
+bool Map::GetState(int x, int y) { return cellMap[x][y]; }
 int Map::GetWidth() { return width; }
 int Map::GetHeight() { return height; }
 int Map::GetBirthLimit() { return birthLimit; }
@@ -34,15 +34,15 @@ int Map::GetDeathLimit() { return deathLimit; }
 float Map::GetChanceToStartAlive() { return chanceToStartAlive; }
 
 // Setters
-void Map::SetState(int x, int y, bool state) { cellMap[y][x] = state; }
+void Map::SetState(int x, int y, bool state) { cellMap[x][y] = state; }
 
 void Map::Generate()
 {
 	srand(time(NULL));
 
-	for (int y = 0; y < GetHeight(); y++)
+	for (int x = 0; x < GetWidth(); x++)
 	{
-		for (int x = 0; x < GetWidth(); x++)
+		for (int y = 0; y < GetHeight(); y++)
 		{
 			float r = static_cast<float>(rand() / static_cast<float>(RAND_MAX));
 
@@ -58,9 +58,9 @@ void Map::SimulationStep()
 {
 	int neighbors;
 
-	for (int y = 0; y < GetHeight(); y++)
+	for (int x = 0; x < GetWidth(); x++)
 	{
-		for (int x = 0; x < GetWidth(); x++)
+		for (int y = 0; y < GetHeight(); y++)
 		{
 			neighbors = GetNeighbors(x, y);
 
@@ -68,22 +68,22 @@ void Map::SimulationStep()
 			{
 				if (neighbors < GetDeathLimit())
 				{
-					tmpMap[y][x] = false;
+					tmpMap[x][y] = false;
 				}
 				else
 				{
-					tmpMap[y][x] = true;
+					tmpMap[x][y] = true;
 				}
 			}
 			else
 			{
 				if (neighbors > GetBirthLimit())
 				{
-					tmpMap[y][x] = true;
+					tmpMap[x][y] = true;
 				}
 				else
 				{
-					tmpMap[y][x] = false;
+					tmpMap[x][y] = false;
 				}
 			}
 		}
@@ -95,9 +95,9 @@ void Map::SimulationStep()
 int Map::GetNeighbors(int x, int y)
 {
 	int count = 0;
-	for (int j = -1; j < 2; j++)
+	for (int i = -1; i < 2; i++)
 	{
-		for (int i = -1; i < 2; i++)
+		for (int j = -1; j < 2; j++)
 		{
 			int neighbor_x = x + i;
 			int neighbor_y = y + j;
@@ -124,9 +124,9 @@ int Map::GetNeighbors(int x, int y)
 
 void Map::ShowMap()
 {
-	for (int y = 0; y < GetHeight(); y++)
+	for (int x = 0; x < GetWidth(); x++)
 	{
-		for (int x = 0; x < GetWidth(); x++)
+		for (int y = 0; y < GetHeight(); y++)
 		{
 			if (GetState(x, y))
 			{

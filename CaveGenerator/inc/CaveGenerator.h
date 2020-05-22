@@ -20,7 +20,6 @@ public:
 	void Generate();
 	void SimulationStep();
 	void ShowMap();
-	void InvertMap();
 	
 	// Getters
 	bool GetState(int x, int y);
